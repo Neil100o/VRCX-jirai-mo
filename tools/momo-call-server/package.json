@@ -1,0 +1,13 @@
+{
+  "name": "momo-call-signalling-server",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Development-only signalling relay for MomoCall WebRTC testing.",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
+  }
+}

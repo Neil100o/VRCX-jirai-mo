@@ -102,6 +102,10 @@
                             <MousePointer class="size-4" />
                             {{ t('dialog.user.actions.send_boop') }}
                         </DropdownMenuItem>
+                        <DropdownMenuItem @click="onCommand('Start MomoCall')">
+                            <Mic class="size-4" />
+                            MomoCall
+                        </DropdownMenuItem>
                     </template>
                     <template v-else-if="userDialog.incomingRequest">
                         <DropdownMenuItem @click="onCommand('Accept Friend Request')">

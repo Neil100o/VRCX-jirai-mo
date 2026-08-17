@@ -72,6 +72,10 @@
         <SocialStatusDialog
             :social-status-dialog="socialStatusDialog"
             :social-status-history-table="socialStatusHistoryTable" />
+        <MomoCallDialog
+            :momo-call-dialog="momoCallDialog"
+            :current-user-id="currentUser.id"
+            @update:visible="momoCallDialog.visible = $event" />
         <LanguageDialog />
         <BioDialog :bio-dialog="bioDialog" />
         <PronounsDialog :pronouns-dialog="pronounsDialog" />
@@ -119,6 +123,7 @@
 
     import BioDialog from './BioDialog.vue';
     import LanguageDialog from './LanguageDialog.vue';
+    import MomoCallDialog from './MomoCallDialog.vue';
     import ModerateGroupDialog from '../ModerateGroupDialog.vue';
     import PronounsDialog from './PronounsDialog.vue';
     import SendInviteRequestDialog from './SendInviteRequestDialog.vue';
@@ -200,6 +205,7 @@
         showAvatarAuthorDialog,
         showModerateGroupDialog,
         showSendBoopDialog,
+        showMomoCallDialog,
         showGalleryPage,
         getFriendRequest,
         handleFriendDelete,
@@ -249,6 +255,12 @@
     const userDialogLastAvatar = ref('');
     const userDialogLastWorld = ref('');
     const userDialogLastFavoriteWorld = ref('');
+
+    const momoCallDialog = ref({ visible: false, userId: '', displayName: '' });
+
+    function showMomoCallDialog(userId, displayName) {
+        momoCallDialog.value = { visible: true, userId, displayName };
+    }
 
     const socialStatusDialog = ref({
         visible: false,

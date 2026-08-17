@@ -32,6 +32,7 @@ import { recordRecentAction } from '../../../composables/useRecentActions';
  * @param deps.showAvatarAuthorDialog
  * @param deps.showModerateGroupDialog
  * @param deps.showSendBoopDialog
+ * @param deps.showMomoCallDialog
  * @param deps.showGalleryPage
  * @param deps.getFriendRequest
  * @param deps.handleFriendDelete
@@ -61,6 +62,7 @@ export function useUserDialogCommands(
         showAvatarAuthorDialog,
         showModerateGroupDialog,
         showSendBoopDialog,
+        showMomoCallDialog,
         showGalleryPage,
         getFriendRequest,
         handleFriendDelete,
@@ -343,6 +345,9 @@ export function useUserDialogCommands(
             },
             'Send Boop': () => {
                 showSendBoopDialog(D().id);
+            },
+            'Start MomoCall': () => {
+                showMomoCallDialog(D().id, D().ref?.displayName || D().id);
             },
             'Group Moderation': () => {
                 showModerateGroupDialog(D().id);
